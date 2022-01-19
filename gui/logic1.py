@@ -1,12 +1,6 @@
 # TODO: Add the weighting system
 # TODO: Document program
 
-# Calculate the GPA of a student
-"""
-Inputs: # number of courses, grades(A), credit hours of courses.
-
-Output: A grade
-"""
 
 
 main_grades = {"A": 4.0, "B+": 3.5,
@@ -16,12 +10,25 @@ main_grades = {"A": 4.0, "B+": 3.5,
 		 "F": 0}
 
 def gpa_calc():
+	"""Calculate the GPA of a student
+
+	Args: 
+		None
+
+	Returns:
+		The resulting gpa
+
+	Raises:
+		ValueError: If the user enters invalid value types.
+	"""
 	count = 0
 	hours = 0
+
 	try:
 		course_num = int(input("Please enter the num of courses you are offering: "))
 	except ValueError:
 		return "value must be an integer"
+
 	for i in range(course_num):
 		grades = input(f"Enter grade{i+1}: ").upper()
 
@@ -33,10 +40,10 @@ def gpa_calc():
 		except ValueError:
 			return "Value must be an integer."
 			
-		count += main_grades[grades] * c_hours
-		hours += c_hours
+		count += main_grades[grades] * c_hours	# Total grade point.
+		hours += c_hours	# Total credit hours
 
-	return count/hours
+	return count/hours		# Gpa value
 
 
 print(gpa_calc())
