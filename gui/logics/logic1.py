@@ -55,7 +55,7 @@ def new_gpa_calc(grades):
 
 	return count/total_hours
 
-if __name__ = "__main__":
+if __name__ == "__main__":
 	yaw = {"A":3, "B": 2, "D": 10}
 	print(new_gpa_calc(yaw))
 	print(gpa_calc())
