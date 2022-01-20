@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
-def window():
+def main():
    app = QApplication(sys.argv)
    win = QWidget()
 
@@ -39,19 +39,11 @@ def window():
 
    win.setLayout(vbox)
 
-   btn1.clicked.connect(showdialog)
+   #btn1.clicked.connect(showdialog)
 
    win.setWindowTitle("GPA 101")
    win.show()
    sys.exit(app.exec_())
 
-def showdialog():
-   dlg = QDialog()
-   b1 = QPushButton("ok",dlg)
-   b1.move(50,50)
-   dlg.setWindowTitle("Dialog") 
-   dlg.setWindowModality(Qt.ApplicationModal)
-   dlg.exec_()
-
 if __name__ == '__main__':
-   window()
+   main()
