@@ -7,7 +7,10 @@ from logics.logic1 import new_gpa_calc
 class InputDialog(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
+		self.random()
 
+
+	def random(self):
 		self.course_num = self.getCourses()
 		self.grades = []
 		self.credits = []
@@ -41,12 +44,9 @@ class InputDialog(QDialog):
 		yaw = new_gpa_calc(self.grades, self.credits)
 		QMessageBox.about(self, "Title", f"Your gpa is {yaw}")
 
-
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
 	dialog = InputDialog()
-	if dialog.exec():
-		print(dialog.getInputs())
 	exit(0)
 
