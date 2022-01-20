@@ -45,5 +45,16 @@ def gpa_calc():
 
 	return count/hours		# Gpa value
 
+def new_gpa_calc(grades):
+	count = 0
+	total_hours = sum(grades.values())
+	for i,v in grades.items():
+		if i not in main_grades.keys():
+			return "Invalid grade"
+		count += main_grades[i] * grades[i]
 
+	return count/total_hours
+
+yaw = {"A":3, "B": 2, "D": 10}
+print(new_gpa_calc(yaw))
 print(gpa_calc())
