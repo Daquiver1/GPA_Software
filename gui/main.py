@@ -44,8 +44,6 @@ class window(QWidget):
       self.setLayout(self.vbox)
 
    def button23(self,s):
-      print("Click", s)
-
       dlg = InputDialog()
 
 def main():
