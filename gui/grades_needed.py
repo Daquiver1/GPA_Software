@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from logics.logic2 import *
 
-class InputDialog(QDialog):
+class InputDialog2(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.random()
@@ -26,11 +26,11 @@ class InputDialog(QDialog):
 		self.showGPA()
 		  
 	def getOldGpa(self):
-		i, okPressed = QInputDialog.getDouble(self, "Cu","Your Current GPA: ", 0.00, 0, 100000, 2)
+		i, okPressed = QInputDialog.getDouble(self, "Current","Your Current GPA: ", 0.00, 0, 100000, 2)
 		return i
 
 	def getNewGpa(self):
-		i, okPressed = QInputDialog.getDouble(self, "Cu","Your Desired GPA: ", 0.00, 0, 100000, 2)
+		i, okPressed = QInputDialog.getDouble(self, "Desired","Your Desired GPA: ", 0.00, 0, 100000, 2)
 		return i
 
 	def getNumCourse(self):
@@ -46,8 +46,10 @@ class InputDialog(QDialog):
 		return i
 
 	def showGPA(self):
-		QMessageBox.about(self, "Title", f"""In order to attain a CGPA of {self.new_cgpa} you need to get a gpa of {self.yaw} this semester and 
-							a GPA of {self.yaw} requries a minimum grade(s) of {self.nii}""")
+		if type(self.yaw) == str:
+			return QMessageBox.about(self, "Title", self.yaw)
+
+		return QMessageBox.about(self, "Title", f"""In order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa} you need to get a gpa of {self.yaw} this semester and a GPA of {self.yaw} requries minimum grade(s) of {self.nii}""")
 
 if __name__ == '__main__':
 	import sys
