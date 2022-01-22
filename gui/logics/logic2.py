@@ -13,18 +13,20 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	Raises:
 		None
 	"""
-	if old_cgpa > 4 or new_cgpa > 4:
-		return "Your cgpas shouldn't be greater than 4."
+	if old_cgpa < 0 or old_cgpa > 4 or new_cgpa < 0 or new_cgpa > 4:
+		return "Your cgpas shouldn't be greater than 4 and shouldn't be a negative number."
 
 	total_chours = old_chours + new_chours
-	new_points = total_chours * new_cgpa
-	old_points = old_chours * old_cgpa
-	diff_points = new_points - old_points
-	min_gpa = diff_points / new_chours
-	if min_gpa > 4.00:
-		return f"You can't achieve a {new_gpa} cgpa in this semester, try again next sem"
+	new_points = total_chours * new_cgpa		# Average of your desired gpa over your total course hours
+	old_points = old_chours * old_cgpa			# Average of your current gpa over your current course hours
+	diff_points = new_points - old_points		# Difference between your desired and your old
+	min_gpa = diff_points / new_chours			# GPA of the difference and your new credit hours. Which is the min gpa you need.
 
+	if min_gpa > 4.00:
+		return f"You can't achieve a {new_gpa} cgpa in this semester, try again next semester"
 	return min_gpa
+
+
 try:
 	old = float(input("Please enter your current cgpa: "))
 	new = float(input("Please enter your desired cgpa: "))
