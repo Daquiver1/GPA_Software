@@ -11,21 +11,25 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 		The minimum gpa needed required to achieve your desired cgpa. Type: float 
 
 	Raises:
-		ValueError: If the user enters invalid value types.
+		None
 	"""
+	if old_cgpa > 4 or new_cgpa > 4:
+		return "Your cgpas shouldn't be greater than 4."
+
 	total_chours = old_chours + new_chours
-	new_points = total_chours * new_gpa
-	old_points = old_chours * old_gpa
+	new_points = total_chours * new_cgpa
+	old_points = old_chours * old_cgpa
 	diff_points = new_points - old_points
 	min_gpa = diff_points / new_chours
 	if min_gpa > 4.00:
 		return f"You can't achieve a {new_gpa} cgpa in this semester, try again next sem"
 
 	return min_gpa
-
-old = float(input("Please enter your current cgpa: "))
-new = float(input("Please enter your desired cgpa: "))
-c_old = int(input("Please enter your old credit hours: "))
-c_new = int(input("Please enter your new credit hours: "))
-
-print(calc_gpa_needed(old, new, c_old, c_new))
+try:
+	old = float(input("Please enter your current cgpa: "))
+	new = float(input("Please enter your desired cgpa: "))
+	c_old = int(input("Please enter your old credit hours: "))
+	c_new = int(input("Please enter your new credit hours: "))
+	print(calc_gpa_needed(old, new, c_old, c_new))
+except ValueError:
+	print("Please enter a decimal for your gpa and an integer for your credit hours")
