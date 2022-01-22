@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from logics.logic1 import new_gpa_calc
 
-class InputDialog(QDialog):
+class InputDialog1(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.random()
