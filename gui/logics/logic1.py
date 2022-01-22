@@ -1,13 +1,12 @@
 # TODO: Add the weighting system
 # TODO: Document program
 
-
-
 main_grades = {"A": 4.0, "B+": 3.5,
 		 "B": 3.0, "C+": 2.5, 
 		 "C": 2.0, "D+": 1.5,
 		 "D": 1.0, "E": 0,
 		 "F": 0}
+
 
 def gpa_calc():
 	"""Calculate the GPA of a student
