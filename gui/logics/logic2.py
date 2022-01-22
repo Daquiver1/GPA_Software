@@ -1,3 +1,5 @@
+from logic1 import main_grades
+
 def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	"""Calculate the GPA needed in order to hit a specified CGPA.
 
@@ -31,13 +33,39 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	return min_gpa								# Min GPA needed to hit your desired cgpa
 
 
+def getList(dict):     
+    return list(dict.keys())
+      
+def gpa_to_grades(gpa, course_num):
+	i = 0
+	temp = 0
+	nii = getList(main_grades)
+	yaw = []
+	while temp != gpa:
+		if temp > gpa and i > 5: # try temp, i > gpa, 5
+			break
+
+		if temp > gpa:
+			i += 1
+			del yaw[-1]
+
+
+		temp += main_grades[nii[i]]/course_num
+		yaw.append(nii[i])
+
+	return yaw
+
+
+
+
 if __name__ == "__main__":
-	try:
-	 	old = float(input("Please enter your current cgpa: "))
-	 	new = float(input("Please enter your desired cgpa: "))
-	 	c_old = int(input("Please enter your old credit hours: "))
-	 	c_new = int(input("Please enter your new credit hours: "))
-	 	print(calc_gpa_needed(old, new, c_old, c_new))
-	except ValueError:
-		print("Please enter a decimal for your gpa and an integer for your credit hours")
+	print(gpa_to_grades(1, 7))
+	# try:
+	#  	old = float(input("Please enter your current cgpa: "))
+	#  	new = float(input("Please enter your desired cgpa: "))
+	#  	c_old = int(input("Please enter your old credit hours: "))
+	#  	c_new = int(input("Please enter your new credit hours: "))
+	#  	print(calc_gpa_needed(old, new, c_old, c_new))
+	# except ValueError:
+	# 	print("Please enter a decimal for your gpa and an integer for your credit hours")
 	
