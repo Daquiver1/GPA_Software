@@ -1,4 +1,8 @@
-from logic1 import main_grades
+main_grades = {"A": 4.0, "B+": 3.5,
+		 "B": 3.0, "C+": 2.5, 
+		 "C": 2.0, "D+": 1.5,
+		 "D": 1.0, "E": 0,
+		 "F": 0}
 
 def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	"""Calculate the GPA needed in order to hit a specified CGPA.
@@ -45,7 +49,7 @@ def getList(dict):
 	Raises:
 		None
 	""" 
-    return list(dict.keys())
+	return list(dict.keys())
       
 def gpa_to_grades(gpa, course_num):
 	"""Converts GPA to grades
