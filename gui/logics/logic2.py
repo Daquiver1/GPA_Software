@@ -30,28 +30,51 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	if min_gpa > 4.00:
 		return f"You can't achieve a {new_cgpa} cgpa in this semester, try again next semester"
 
-	return min_gpa								# Min GPA needed to hit your desired cgpa
+	return min_gpa							
 
 
-def getList(dict):     
+def getList(dict):
+	"""Returns dict keys as list.
+
+	Args: 
+		dict: Dictionary. Type: dict
+
+	Returns:
+		Dictionary keys of type list
+
+	Raises:
+		None
+	""" 
     return list(dict.keys())
       
 def gpa_to_grades(gpa, course_num):
+	"""Converts GPA to grades
+
+	Args: 
+		gpa: Your current cgpa. Type: float or int.
+		course_num: number of courses. Type: int
+
+	Returns:
+		The grades needed to acquire a specific gpa. Type: list
+
+	Raises:
+		None
+	"""
 	i = 0
 	temp = 0
-	nii = getList(main_grades)
+	nii = getList(main_grades)		# Get the grades (A,B+, etc)
 	yaw = []
-	while temp != gpa:
-		if temp > gpa and i > 5: # try temp, i > gpa, 5
+	while temp != gpa:			
+		if temp > gpa and i > 5: 	# Try temp, i > gpa, 5		# E and F have 0 value, so breaks at e
 			break
 
-		if temp > gpa:
+		if temp > gpa:				# If Grade[i] can't be added without exceedint gpa, rollover to next grade.
 			i += 1
-			del yaw[-1]
+			del yaw[-1]				# Delete added grade
 
 
-		temp += main_grades[nii[i]]/course_num
-		yaw.append(nii[i])
+		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
+		yaw.append(nii[i])			# Add grade letter to list.
 
 	return yaw
 
