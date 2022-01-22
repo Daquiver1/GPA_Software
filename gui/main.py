@@ -2,7 +2,8 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from gpa_calc import InputDialog
+from gpa_calc import InputDialog1
+from grades_needed import InputDialog2
 
 class window(QWidget):
    def __init__(self, parent = None):
@@ -23,8 +24,9 @@ class window(QWidget):
       self.l2.setText("Below are the features we support")
       self.btn1.setText("LEVEL PREDICTOR")
       self.btn2.setText("GRADES YOU NEED IN ORDER TO ATTAIN A LEVEL")
+      self.btn2.clicked.connect(self.button2)
       self.btn3.setText("GPA CALCULATOR")
-      self.btn3.clicked.connect(self.button23)
+      self.btn3.clicked.connect(self.button3)
       self.btn4.setText("FAQS")
       self.btn5.setText("CONTACT")
 
@@ -43,8 +45,12 @@ class window(QWidget):
 
       self.setLayout(self.vbox)
 
-   def button23(self,s):
-      dlg = InputDialog()
+   def button2(self, s):
+      dlg = InputDialog2()
+
+   def button3(self,s):
+      dlg = InputDialog1()
+
 
 def main():
    app = QApplication(sys.argv)
