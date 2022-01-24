@@ -2,9 +2,9 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from logics.logic1 import new_gpa_calc
+from logics.logic4 import new_gpa_calc
 
-class InputDialog1(QDialog):
+class InputDialog4(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.random()
@@ -47,6 +47,6 @@ class InputDialog1(QDialog):
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
-	dialog = InputDialog()
+	dialog = InputDialog4()
 	exit(0)
 
