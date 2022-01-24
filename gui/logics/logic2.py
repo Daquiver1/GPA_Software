@@ -80,19 +80,21 @@ def gpa_to_grades(gpa, course_num):
 	nii = getList(main_grades)		# Get the grades (A,B+, etc)
 	yaw = []
 	while temp != gpa:			
+		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
 		if temp > gpa and i > 5: 	# Try temp, i > gpa, 5		# E and F have 0 value, so breaks at e
-			del yaw[-1]
+			#del yaw[-1]
 			break
 
 		if temp > gpa:				# If Grade[i] can't be added without exceedint gpa, rollover to next grade.
 			temp -= main_grades[nii[i]]/course_num	
-			del yaw[-1]
 			i += 1
 		else:
-			
+			yaw.append(nii[i])			# Add grade letter to list.
 
-		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
-		yaw.append(nii[i])			# Add grade letter to list.
+
+		print(temp)
+		print(yaw)
+		print(gpa)
 
 	return yaw
 
