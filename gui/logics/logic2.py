@@ -35,7 +35,7 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 		min_gpa = diff_points / new_chours			# Your diff weight scaled to your new hours, to reflect the GPA you need. 
 	except ZeroDivisionError:
 		return "You are dividing by zero. That's illogical."
-		
+
 	if min_gpa > 4.00:
 		return f"You can't achieve a {new_cgpa} cgpa this semester, try again next semester"
 
@@ -58,7 +58,7 @@ def getList(dict):
 		None
 	""" 
 	return list(dict.keys())
-      
+	  
 def gpa_to_grades(gpa, course_num):
 	"""Converts GPA to grades
 
@@ -76,17 +76,20 @@ def gpa_to_grades(gpa, course_num):
 		return gpa
 
 	i = 0
-	temp = 0
+	temp = 0.00
 	nii = getList(main_grades)		# Get the grades (A,B+, etc)
 	yaw = []
 	while temp != gpa:			
 		if temp > gpa and i > 5: 	# Try temp, i > gpa, 5		# E and F have 0 value, so breaks at e
+			del yaw[-1]
 			break
 
 		if temp > gpa:				# If Grade[i] can't be added without exceedint gpa, rollover to next grade.
+			temp -= main_grades[nii[i]]/course_num	
+			del yaw[-1]
 			i += 1
-			del yaw[-1]				# Delete added grade
-
+		else:
+			
 
 		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
 		yaw.append(nii[i])			# Add grade letter to list.
@@ -97,13 +100,13 @@ def gpa_to_grades(gpa, course_num):
 
 
 if __name__ == "__main__":
-	#print(gpa_to_grades(1, 7))
 	try:
-	 	old = float(input("Please enter your current cgpa: "))
-	 	new = float(input("Please enter your desired cgpa: "))
-	 	c_old = int(input("Please enter your old credit hours: "))
-	 	c_new = int(input("Please enter your new credit hours: "))
-	 	print(calc_gpa_needed(old, new, c_old, c_new))
+		old = float(input("Please enter your current cgpa: "))
+		new = float(input("Please enter your desired cgpa: "))
+		c_old = int(input("Please enter your old credit hours: "))
+		c_new = int(input("Please enter your new credit hours: "))
+		yaw = calc_gpa_needed(old, new, c_old, c_new)
+		print(gpa_to_grades(yaw, 7))
 	except ValueError:
 		print("Please enter a decimal for your gpa and an integer for your credit hours")
 	
