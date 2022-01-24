@@ -54,6 +54,6 @@ class InputDialog2(QDialog):
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
-	dialog = InputDialog()
+	dialog = InputDialog2()
 	exit(0)
 
