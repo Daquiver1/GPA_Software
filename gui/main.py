@@ -2,8 +2,9 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from gpa_calc import InputDialog1
 from grades_needed import InputDialog2
+from gpa_calc import InputDialog4
+from contact import InputDialog6
 
 class window(QWidget):
    def __init__(self, parent = None):
@@ -19,16 +20,22 @@ class window(QWidget):
       self.btn3 = QPushButton()
       self.btn4 = QPushButton()
       self.btn5 = QPushButton()
+      self.btn6 = QPushButton()
 
-      self.l1.setText("Hey, Welcome To Daquiver's GPA Predictor")
+      self.l1.setText("Hey, Welcome To Daquiver's GPA Self Care")
       self.l2.setText("Below are the features we support")
       self.btn1.setText("LEVEL PREDICTOR")
+      # Add connect
       self.btn2.setText("GRADES YOU NEED IN ORDER TO ATTAIN A LEVEL")
       self.btn2.clicked.connect(self.button2)
-      self.btn3.setText("GPA CALCULATOR")
-      self.btn3.clicked.connect(self.button3)
-      self.btn4.setText("FAQS")
-      self.btn5.setText("CONTACT")
+      self.btn3.setText("HIGHEST CGPA YOU CAN ATTAIN IN A SEM")
+      # Add connect
+      self.btn4.setText("GPA CALCULATOR")
+      self.btn4.clicked.connect(self.button4)
+      self.btn5.setText("FAQS")
+      # Add connect
+      self.btn6.setText("CONTACT")
+      self.btn6.clicked.connect(self.button6)
 
       self.l1.setAlignment(Qt.AlignCenter)
       self.l2.setAlignment(Qt.AlignCenter)
@@ -42,69 +49,22 @@ class window(QWidget):
       self.vbox.addWidget(self.btn3)
       self.vbox.addWidget(self.btn4)
       self.vbox.addWidget(self.btn5)
+      self.vbox.addWidget(self.btn6)
 
       self.setLayout(self.vbox)
 
    def button2(self, s):
       dlg = InputDialog2()
 
-   def button3(self,s):
-      dlg = InputDialog1()
+   def button4(self,s):
+      dlg = InputDialog4()
+
+   def button6(self, s):
+      dlg = InputDialog6()
 
 
-def main():
+if __name__ == '__main__':
    app = QApplication(sys.argv)
    ex = window()
    ex.show()
    sys.exit(app.exec_())
-
-if __name__ == '__main__':
-   main()
-
-
-# def main(self):
-#    yaw = InputDialog.random(self)
-#    print(yaw)
-   # app = QApplication(sys.argv)
-   # win = QWidget()
-
-   # l1 = QLabel()
-   # l2 = QLabel()
-   # btn1 = QPushButton(win)
-   # btn2 = QPushButton(win)
-   # btn3 = QPushButton(win)
-   # btn4 = QPushButton(win)
-   # btn5 = QPushButton(win)
-
-
-   # l1.setText("Hey, Welcome To Daquiver's GPA Predictor")
-   # l2.setText("Below are the features we support")
-   # btn1.setText("LEVEL PREDICTOR")
-   # btn2.setText("GRADES YOU NEED IN ORDER TO ATTAIN A LEVEL")
-   # btn3.setText("GPA CALCULATOR")
-   # btn3.clicked.connect(InputDialog)
-   # btn4.setText("FAQS")
-   # btn5.setText("CONTACT")
-
-   # l1.setAlignment(Qt.AlignCenter)
-   # l2.setAlignment(Qt.AlignCenter)
-
-   # vbox = QVBoxLayout()
-   # vbox.addWidget(l1)
-   # vbox.addWidget(l2)
-   # vbox.addStretch()
-   # vbox.addWidget(btn1)
-   # vbox.addWidget(btn2)
-   # vbox.addWidget(btn3)
-   # vbox.addWidget(btn4)
-   # vbox.addWidget(btn5)
-
-   # win.setLayout(vbox)
-
-
-   # win.setWindowTitle("GPA 101")
-   # win.show()
-   # sys.exit(app.exec_())
-
-# if __name__ == '__main__':
-#    main()
