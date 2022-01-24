@@ -25,7 +25,7 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 		return "Please enter a decimal for your gpa and an integer for your credit hours"
 
 	if old_cgpa < 0 or old_cgpa > 4 or new_cgpa < 0 or new_cgpa > 4:
-		return "Your cgpas shouldn't be greater than 4 and shouldn't be a negative number."
+		return "Your cgpas should be between 4 and 0"
 
 	total_chours = old_chours + new_chours
 	new_points = total_chours * new_cgpa		# Average weight of your desired gpa over your total course hours.
@@ -42,8 +42,7 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 
 	min_gpa = round(min_gpa, 2)
 
-	return min_gpa							
-
+	return min_gpa
 
 def getList(dict):
 	"""Returns dict keys as list.
@@ -77,28 +76,21 @@ def gpa_to_grades(gpa, course_num):
 
 	i = 0
 	temp = 0.00
-	nii = getList(main_grades)		# Get the grades (A,B+, etc)
+	nii = getList(main_grades)		# Get the grades (A to F)
 	yaw = []
 	while temp != gpa:			
 		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
-		if temp > gpa and i > 5: 	# Try temp, i > gpa, 5		# E and F have 0 value, so breaks at e
-			#del yaw[-1]
+
+		if temp > gpa and i > 5: 	# E and F carry zero weight. So break after D.
 			break
 
-		if temp > gpa:				# If Grade[i] can't be added without exceedint gpa, rollover to next grade.
-			temp -= main_grades[nii[i]]/course_num	
+		if temp > gpa:				# If Grade[i] can't be added without exceeding gpa, delete added value and rollover to next grade.
+			temp -= main_grades[nii[i]]/course_num		
 			i += 1
 		else:
 			yaw.append(nii[i])			# Add grade letter to list.
 
-
-		print(temp)
-		print(yaw)
-		print(gpa)
-
 	return yaw
-
-
 
 
 if __name__ == "__main__":
