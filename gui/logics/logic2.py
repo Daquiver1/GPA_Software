@@ -21,11 +21,11 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	Raises:
 		None
 	"""
-	if type(old_cgpa) not in [float,int] or type(new_cgpa) not in [float, int] or type(old_chours) != int or type(new_chours) != int:	# Error handling for when the function is imported from another file.
-		return "Please enter a decimal for your gpa and an integer for your credit hours"
+	if type(old_cgpa) and type(new_cgpa) not in [float, int] and type(old_chours) and type(new_chours) != int:	# Error handling for when the function is imported from another file.
+		return "Please enter a decimal for your CGPA and an integer for your credit hours"
 
-	if old_cgpa < 0 or old_cgpa > 4 or new_cgpa < 0 or new_cgpa > 4:
-		return "Your cgpas should be between 4 and 0"
+	if old_cgpa < 0 and old_cgpa > 4 and new_cgpa < 0 and new_cgpa > 4:
+		return "Your CGPA should be between 4 and 0"
 
 	total_chours = old_chours + new_chours
 	new_points = total_chours * new_cgpa		# Average weight of your desired gpa over your total course hours.
@@ -34,32 +34,15 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	try: 
 		min_gpa = diff_points / new_chours			# Your diff weight scaled to your new hours, to reflect the GPA you need. 
 	except ZeroDivisionError:
-		return "You are dividing by zero. That's illogical."
+		return "Yikes, we encountered an error."
 
 	if min_gpa > 4.00:
-		return f"You can't achieve a {new_cgpa} cgpa this semester, try again next semester"
+		return f"You can't achieve a {new_cgpa} CGPA this semester, try again next semester"
 
 
 	min_gpa = round(min_gpa, 2)
 
 	return min_gpa
-
-def grade_to_classification(grade):
-	if grade >= 3.60:
-	 return "First Class"
-	elif grade >= 3.00: 
-		return "Second Class Upper"
-	elif grade >= 2.00:
-		return "Second class Lower"
-	elif grade >= 1.50:
-		return "Third Class"
-	elif grade >= 1.00:
-		return "Pass"
-	elif grade < 1.00:
-		return "Fail"
-	else:
-		return "Invalid Input"
-
 
 def getList(dict):
 	"""Returns dict keys as list.

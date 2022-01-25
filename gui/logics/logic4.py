@@ -22,7 +22,7 @@ def new_gpa_calc(grades, credit):
 
 	yaw = grade_to_classification(gpa)
 
-	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your gpa is {gpa} which is {yaw}"
+	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your GPA is {gpa} which is {yaw}"
 
 
 def grade_to_classification(grade):

@@ -26,11 +26,11 @@ CGPA = (Total grade points(4.0, 3.0,2.5, etc) * respective credit hours) / Total
 
 def fgpa():
 	temp = f"""
-FGPA also known as Final Grade point average is final gpa of the student, with this GPA the weights are added.
+FGPA also known as Final Grade point average is final GPA of the student, with this GPA the weights are added.
 Weights varies for Universities, but for the University of Ghana the weights are 1:1:2:2 for each level respectively.
-It's calculated by calculating the gpa for each level then multiplying it by it's weighting/total weights.
+It's calculated by calculating the GPA for each level then multiplying it by it's weighting/total weights.
 So level 100 and 200 will be * 1/6, 1/6 and level 300 and 400 will be * 2/6, 2/6. 
-It adds everything to get your final gpa. """
+It adds everything to get your FGPA. """
 
 	return temp
 
@@ -46,9 +46,9 @@ def resits():
 	temp = f"""
 Resists are taken when one fails a course, a failure means getting E or F in a course. 
 For University of Ghana, F is a compulsory resit and E is an optional resit. 
-Resits are detrimental to your gpa, avoid them as much as you can.
+Resits are detrimental to your GPA, avoid them as much as you can.
 If you fail 2 3-credit courses and pass on third attempt, 9 credit hours and their respective grade points will be added to your transcript.
-This isn't good for your gpa. Not at all.
+This isn't good for your GPA. Not at all.
 If you've taken a resit and want to calculate your CGPA, GPA or FGPA, add your resists to your total number of credit hours and the grades.
 So first sem 5 3-credit courses but I took 2 3-credit resits. That'll be 7 courses with 21 credit hours"""
 
@@ -67,6 +67,6 @@ Fail(No award): 0.00 - 0.99"""
 	return temp
 
 def good_gpa():
-	temp = "A good gpa is relative, depends on the individual but for me a good GPA is 3.6 upwards."
+	temp = "A good GPA is relative, depends on the individual but a 3.4+ GPA is considered okay."
 	return temp
 

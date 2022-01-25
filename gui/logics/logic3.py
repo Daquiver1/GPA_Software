@@ -2,7 +2,7 @@ def highest_cgpa(old_chours, new_chours, old_cgpa):
 	if type(old_cgpa) not in [float, int] and type(old_chours) and type(new_chours) not in [int]:	# Error handling for when the function is imported from another file.
 		return "Please enter a decimal or integer for your cgpas"
 
-	if old_cgpa <0 or old_cgpa >4:
+	if old_cgpa <0 and old_cgpa >4:
 		return "Your cgpas should be between 0 and 4"
 
 	total_chours = old_chours + new_chours
@@ -14,7 +14,7 @@ def highest_cgpa(old_chours, new_chours, old_cgpa):
 
 	yaw = grade_to_classification(max_cgpa)
 
-	return f"With a {old_cgpa} cgpa the highest CGPA you can attain this semester is {max_cgpa} which is {yaw}"
+	return f"With a {old_cgpa} CGPA the highest CGPA you can attain this semester is {max_cgpa} which is {yaw}"
 
 def grade_to_classification(grade):
 	if grade >= 3.60:

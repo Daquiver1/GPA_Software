@@ -1,13 +1,13 @@
 def fgpa(cgpa1, cgpa2, cgpa3, cgpa4):
 
 	if type(cgpa1) and type(cgpa2) and type(cgpa3) and type(cgpa4) not in [float,int]:	# Error handling for when the function is imported from another file.
-		return "Please enter a decimal or integer for your cgpas"
+		return "Please enter a decimal or integer for your CGPA"
 
 	if cgpa1 >4 and cgpa2 > 4 and cgpa3 > 4 and cgpa4 > 4:
-		return "Your cgpas should be between 0 and 4"
+		return "Your CGPA should be between 0 and 4"
 
 	if cgpa1 < 0 and cgpa1 < 0 and cgpa3 < 0 and cgpa4 <0:
-		return "Your cgpas should be between 0 and 4"
+		return "Your CGPA should be between 0 and 4"
 
 	temp1 = cgpa1 *1/6
 	temp2 = cgpa2 * 1/6

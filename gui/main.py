@@ -36,7 +36,7 @@ class window(QWidget):
       self.btn2.clicked.connect(self.button2)
       self.btn3.setText("HIGHEST CGPA YOU CAN ATTAIN IN A SEM")
       self.btn3.clicked.connect(self.button3)
-      self.btn4.setText("GPA CALCULATOR")
+      self.btn4.setText("GPA AND CGPA CALCULATOR")
       self.btn4.clicked.connect(self.button4)
       self.btn5.setText("FGPA CALCULATOR")
       self.btn5.clicked.connect(self.button5)
