@@ -1,5 +1,5 @@
 def gpa():
-	yaw = f"""
+	temp = f"""
 GPA also known as grade point average is a metric used to measure academic perfomances.
 It ranges from 0.0 to 4.0.
 GPA is calculated by adding total credit hours, and total grade point. Then it divides total grade point by total credit hours
@@ -14,45 +14,45 @@ D+: 1.5
 D: 1.0
 E and F: 0"""
 
-	return yaw
+	return temp
 
 def cgpa():
-	yaw = f"""
+	temp = f"""
 CGPA also known as Cumulative Grade point average is the GPA for the total semesters a student has taken.
 CGPA = (Total grade points(4.0, 3.0,2.5, etc) * respective credit hours) / Total number of credits taken """
 
-	return yaw
+	return temp
 
 def fgpa():
-	yaw = f"""
+	temp = f"""
 FGPA also known as Final Grade point average is final gpa of the student, with this GPA the weights are added.
 Weights varies for Universities, but for the University of Ghana the weights are 1:1:2:2 for each level respectively.
 It's calculated by calculating the gpa for each level then multiplying it by it's weighting/total weights.
 So level 100 and 200 will be * 1/6, 1/6 and level 300 and 400 will be * 2/6, 2/6. 
 It adds everything to get your final gpa. """
 
-	return yaw
+	return temp
 
 def credit_hours():
-	yaw = f"""
+	temp = f"""
 Credit hours are a eay of measuring how much credit a student receives for attending a course.
 Most credit hours are 3, although you are likely to meet courses lower credit hours. 
 Higher credit courses have a higher influence on your GPA than lower credit courses."""
 
-	return yaw
+	return temp
 
 def resits():
-	yaw = f"""
+	temp = f"""
 Resists are taken when one fails a course, a failure means getting E or F in a course. 
 For University of Ghana, F is a compulsory resit and E is an optional resit. 
 Resits are detrimental to your gpa, avoid them as much as you can.
 If you fail 2 3-credit courses and pass on third attempt, 9 credit hours and their respective grade points will be added to your transcript.
 This isn't good for your gpa. Not at all."""
 
-	return yaw
+	return temp
 
 def levels():
-	yaw = """
+	temp = """
 The degree classifications(levels) varies for Universites, but for the University of Ghana
 First Class: 3.60 - 4.00
 Second Class Upper: 3.00 - 3.59
@@ -61,9 +61,9 @@ Third Class: 1.50 - 1.999
 Pass: 1.00 - 1.49
 Fail(No award): 0.00 - 0.99"""
 
-	return yaw
+	return temp
 
 def good_gpa():
-	yaw = "A good gpa is relative, depends on the individual but for me a good GPA is 3.6 upwards."
-	return yaw
+	temp = "A good gpa is relative, depends on the individual but for me a good GPA is 3.6 upwards."
+	return temp
 
