@@ -1,5 +1,3 @@
-# TODO: Add better variable names
-
 main_grades = {"A": 4.0, "B+": 3.5,
 		 "B": 3.0, "C+": 2.5, 
 		 "C": 2.0, "D+": 1.5,
@@ -39,7 +37,6 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	if min_gpa > 4.00:
 		return f"You can't achieve a {new_cgpa} CGPA this semester, try again next semester"
 
-
 	min_gpa = round(min_gpa, 2)
 
 	return min_gpa
@@ -71,24 +68,24 @@ def gpa_to_grades(gpa, course_num):
 	Raises:
 		None
 	"""
-	if type(gpa) == str:
-		return gpa
+	if type(gpa) == str:	# Handles error
+		return gpa 
 
-	i = 0
-	temp = 0.00
+	i = 0 								# Grade
+	temp = 0.00							# Temporary gpa, 
 	grade = getList(main_grades)		# Get the grades (A to F)
-	grades_needed = []
-	while temp != gpa:			
-		temp += main_grades[grade[i]]/course_num		# Add gpt of grade to temp.
+	grades_needed = []			
+	while True:					
+		temp += main_grades[grade[i]]/course_num	# Add gradepoint of grade to temp	
 
-		if temp > gpa and i > 5: 	# E and F carry zero weight. So break after D.
+		if temp > gpa and i > 5: 	# E and F carry zero weight. So end loop, when grade is on 5(E) and temp > gpa
 			break
 
 		if temp > gpa:				# If Grade[i] can't be added without exceeding gpa, delete added value and rollover to next grade.
 			temp -= main_grades[grade[i]]/course_num		
 			i += 1
 		else:
-			grades_needed.append(grade[i])			# Add grade letter to list.
+			grades_needed.append(grade[i])			#If it can, add grade letter to list and continue.
 
 	return f"you'll need a {gpa} GPA which requires minimum grade(s) of {grades_needed}"
 

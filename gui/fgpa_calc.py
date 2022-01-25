@@ -19,22 +19,27 @@ class InputDialog5(QDialog):
 		self.showFGPA()
 		  
 	def getCGPA1(self):
+		""" A function to retrieve Level 100's CGPA. """
 		i, okPressed = QInputDialog.getDouble(self, "Current","Level 100 CGPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getCGPA2(self):
+		""" A function to retrieve Level 200's CGPA. """
 		i, okPressed = QInputDialog.getDouble(self, "Current","Level 200 CGPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getCGPA3(self):
+		""" A function to retrieve Level 300's CGPA. """
 		i, okPressed = QInputDialog.getDouble(self, "Current","Level 300 CGPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getCGPA4(self):
+		""" A function to retrieve Level 400's CGPA. """
 		i, okPressed = QInputDialog.getDouble(self, "Current","Level 400 CGPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def showFGPA(self):
+		""" A function to display a student's FGPA. """
 		FGPA = fgpa(self.first, self.second, self.third, self.fourth)
 		QMessageBox.about(self, "Title", FGPA)
 

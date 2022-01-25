@@ -41,30 +41,37 @@ class InputDialog6(QWidget):
       self.setLayout(self.vbox)
 
    def button1(self,s):
+      """ A function to display GPA info. """
       gpa_info = gpa()
       QMessageBox.about(self, "Title", gpa_info)
 
    def button2(self, s):
+      """ A function to display CGPA info. """
       cgpa_info = cgpa()
       QMessageBox.about(self, "Title", cgpa_info) 
 
    def button3(self, s):
+      """ A function to display FGPA info. """
       fgpa_info = fgpa()
       QMessageBox.about(self, "Title", fgpa_info) 
 
    def button4(self,s):
+      """ A function to display credit hours info. """
       chours_info = credit_hours()
       QMessageBox.about(self, "Title", chours_info) 
 
    def button5(self, s):
+      """ A function to display resits info. """
       resit_info = resits()
       QMessageBox.about(self, "Title", resit_info)
 
    def button6(self, s):
+      """ A function to display degree classification info. """
       levels_info = levels()
       QMessageBox.about(self, "Ttile", levels_info)
 
    def button7(self, s):
+      """ A function to display what a good gpa is. """
       good_gpa_info = good_gpa()
       QMessageBox.about(self, "Title", good_gpa_info)
 

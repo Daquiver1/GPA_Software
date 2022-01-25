@@ -64,22 +64,28 @@ class window(QWidget):
       self.setLayout(self.vbox)
 
    def button2(self, s):
+      """ A function to connect btn2 with it's interface. """
       dlg = InputDialog2()
 
    def button3(self, s):
+      """ A function to connect btn3 with it's interface. """
       dlg = InputDialog3()
 
    def button4(self,s):
+      """ A function to connect btn4 with it's interface. """
       dlg = InputDialog4()
 
    def button5(self, s):
+      """ A function to connect btn5 with it's interface. """
       dlg = InputDialog5()
 
    def button6(self, s):
+      """ A function to connect btn6 with it's interface. """
       self.dlg = InputDialog6()           # When the method is left, the window will be destroyed. So I stored it by adding self.
       self.dlg.show()
 
    def button7(self, s):
+      """ A function to connect btn7 with it's interface. """
       dlg = InputDialog7()
 
 

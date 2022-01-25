@@ -1,4 +1,5 @@
 def gpa():
+	""" A function that returns a brief description of GPA. """
 	temp = f"""
 GPA also known as grade point average is a metric used to measure academic perfomances.
 GPA is for a single semester and CGPA is for cumulative semesters.
@@ -18,6 +19,7 @@ E and F: 0"""
 	return temp
 
 def cgpa():
+	""" A function that returns a brief description of CGPA. """
 	temp = f"""
 CGPA also known as Cumulative Grade point average is the GPA for the total semesters a student has taken.
 CGPA = (Total grade points(4.0, 3.0,2.5, etc) * respective credit hours) / Total number of credits taken """
@@ -25,6 +27,7 @@ CGPA = (Total grade points(4.0, 3.0,2.5, etc) * respective credit hours) / Total
 	return temp
 
 def fgpa():
+	""" A function that returns a brief description of FGPA. """
 	temp = f"""
 FGPA also known as Final Grade point average is final GPA of the student, with this GPA the weights are added.
 Weights varies for Universities, but for the University of Ghana the weights are 1:1:2:2 for each level respectively.
@@ -35,6 +38,7 @@ It adds everything to get your FGPA. """
 	return temp
 
 def credit_hours():
+	""" A function that returns a brief description of credit hours. """
 	temp = f"""
 Credit hours are a eay of measuring how much credit a student receives for attending a course.
 Most credit hours are 3, although you are likely to meet courses lower credit hours. 
@@ -43,6 +47,7 @@ Higher credit courses have a higher influence on your GPA than lower credit cour
 	return temp
 
 def resits():
+	""" A function that returns a brief description of resits. """
 	temp = f"""
 Resists are taken when one fails a course, a failure means getting E or F in a course. 
 For University of Ghana, F is a compulsory resit and E is an optional resit. 
@@ -55,6 +60,7 @@ So first sem 5 3-credit courses but I took 2 3-credit resits. That'll be 7 cours
 	return temp
 
 def levels():
+	""" A function that returns a brief description of degree classifications. """
 	temp = """
 The degree classifications(levels) varies for Universites, but for the University of Ghana
 First Class: 3.60 - 4.00
@@ -67,6 +73,7 @@ Fail(No award): 0.00 - 0.99"""
 	return temp
 
 def good_gpa():
+	""" A function that returns a brief description of what a good gpa is. """
 	temp = "A good GPA is relative, depends on the individual but a 3.4+ GPA is considered okay."
 	return temp
 

@@ -15,7 +15,7 @@ class InputDialog4(QDialog):
 		buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self);
 		layout = QFormLayout(self)
 
-		for i in range(self.course_num):
+		for i in range(self.course_num):			# Retrieve all grades and corresponding credit hours. 
 			self.grades.append(self.getText())
 			if self.grades[i] == None:
 				break
@@ -24,20 +24,24 @@ class InputDialog4(QDialog):
 		self.showGPA()
 		  
 	def getCourses(self):
+		""" A function to retrieve the number of courses of a student. """
 		i, okPressed = QInputDialog.getInt(self, "Courses","Number of Courses:", 4, 0, 10, 1)
 		return i
 
 	def getText(self):
+		""" A function to retrieve the grade of a student. """
 		text, okPressed = QInputDialog.getText(self, "Grades","Enter your grade:", QLineEdit.Normal, "")
 		if len(text) == 1 or len(text) == 2:
 			return text.upper()
 		return None
 
 	def getCredit(self):
+		""" A function to retrieve the credit hours of a student. Corresponds with grade. """
 		i, okpressed = QInputDialog.getInt(self, "Credit Hours", "Credit hour of grade:", 4, 0, 10, 1)
 		return i
 
 	def showGPA(self):
+		""" A function to display the GPA of a student. """
 		GPA = new_gpa_calc(self.grades, self.credits)
 		QMessageBox.about(self, "Title", GPA)
 

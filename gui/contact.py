@@ -7,6 +7,7 @@ class InputDialog7(QDialog):
 		self.showMyself()
 
 	def showMyself(self):
+		""" A function that returns a message box displaying a short intro of me. """
 		my_info = Myself()
 		QMessageBox.about(self, "Title", my_info)
 

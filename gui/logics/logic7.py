@@ -1,4 +1,5 @@
 def Myself():
+	""" A function that displays a brief info of myself. """
 	info = f"""
 Hey, my name is Christian and I'm a student developer at the University of Ghana.
 I'm a solutions oriented individual, so if I see a problem or an inefficient solution, my brain automatically thinks of how it can be resolved.\n 

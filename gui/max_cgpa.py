@@ -18,20 +18,23 @@ class InputDialog3(QDialog):
 		self.showGPA()
 		  
 	def getOldGpa(self):
+		""" A function to retrieve the current CGPA of student. """
 		i, okPressed = QInputDialog.getDouble(self, "Current","Your Current GPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getOldCredit(self):
+		""" A function to retrieve the current credit hours of student. """
 		i, okpressed = QInputDialog.getInt(self, "Old Credit Hours", "Your current credit hours: ", 0, 0, 100000, 1)
 		return i
 
 	def getNewCredit(self):
+		""" A function to retrieve the credit hours of a semester. """
 		i, okpressed = QInputDialog.getInt(self, "New Credit Hours", "Credit hours for this semester ", 0, 0, 100000, 1)
 		return i
 
 	def showGPA(self):
+		""" A function to display the maximum CGPA of a student. """
 		max_cgpa = highest_cgpa(self.old_cred, self.new_cred, self.old_cgpa)
-		
 		return QMessageBox.about(self, "Title", max_cgpa)
 
 if __name__ == '__main__':
