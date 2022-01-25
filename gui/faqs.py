@@ -2,13 +2,12 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from logics.logic5 import * 
 
-class window(QWidget):
+class InputDialog5(QWidget):
    def __init__(self, parent = None):
       super().__init__()
-      #super(window, self).__init__(parent)
       self.resize(200,50)
-      self.setWindowTitle("PyQt5")
 
       self.btn1 = QPushButton()
       self.btn2 = QPushButton()
@@ -19,19 +18,19 @@ class window(QWidget):
       self.btn7 = QPushButton()
 
       self.btn1.setText("What is GPA?")
-      # Add connect
+      self.btn1.clicked.connect(self.button1)
       self.btn2.setText("What is CGPA?")
-      # Add connect
+      self.btn2.clicked.connect(self.button2)
       self.btn3.setText("What is FGPA?")
-      # Add connect
+      self.btn3.clicked.connect(self.button3)
       self.btn4.setText("What are credit hours?")
-      # Add connect
+      self.btn4.clicked.connect(self.button4)
       self.btn5.setText("What are resits?")
-      # Add connect
+      self.btn5.clicked.connect(self.button5)
       self.btn6.setText("What are levels?")
-      # Add connect
+      self.btn6.clicked.connect(self.button6)
       self.btn7.setText("What is a good GPA?")
-      # Add connect
+      self.btn7.clicked.connect(self.button7)
 
       self.vbox = QVBoxLayout()
       self.vbox.addWidget(self.btn1)
@@ -45,28 +44,35 @@ class window(QWidget):
       self.setLayout(self.vbox)
 
    def button1(self,s):
-      pass
+      gpa_info = gpa()
+      QMessageBox.about(self, "Title", gpa_info)
 
    def button2(self, s):
-      pass 
+      cgpa_info = cgpa()
+      QMessageBox.about(self, "Title", cgpa_info) 
 
    def button3(self, s):
-      pass 
+      fgpa_info = fgpa()
+      QMessageBox.about(self, "Title", fgpa_info) 
 
    def button4(self,s):
-      pass 
+      chours_info = credit_hours()
+      QMessageBox.about(self, "Title", chours_info) 
 
    def button5(self, s):
-      pass
+      resit_info = resits()
+      QMessageBox.about(self, "Title", resit_info)
 
    def button6(self, s):
-      pass
+      levels_info = levels()
+      QMessageBox.about(self, "Ttile", levels_info)
 
    def button7(self, s):
-      pass
+      good_gpa_info = good_gpa()
+      QMessageBox.about(self, "Title", good_gpa_info)
 
 if __name__ == '__main__':
    app = QApplication(sys.argv)
-   ex = window()
+   ex = InputDialog5()
    ex.show()
    sys.exit(app.exec_())
