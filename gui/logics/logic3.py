@@ -1,5 +1,5 @@
 def highest_cgpa(old_chours, new_chours, old_cgpa):
-		"""Calculate the highest CGPA one can attain.
+	"""Calculate the highest CGPA one can attain.
 
 	Args: 
 		old_chours: Your credit hours for your previous semesters. Type: int
@@ -28,7 +28,7 @@ def highest_cgpa(old_chours, new_chours, old_cgpa):
 	return f"With a {old_cgpa} CGPA the highest CGPA you can attain this semester is {max_cgpa} which is {levels}"
 
 def grade_to_classification(gpa):
-		"""Transorm a GPA to it's corresponding level.
+	"""Transorm a GPA to it's corresponding level.
 
 	Args: 
 		GPA: Users gpa. Type: float
@@ -40,7 +40,7 @@ def grade_to_classification(gpa):
 		None
 	"""
 	if gpa >= 3.60:
-	 return "First Class"
+		return "First Class"
 	elif gpa >= 3.00: 
 		return "Second Class Upper"
 	elif gpa >= 2.00:

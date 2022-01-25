@@ -1,5 +1,7 @@
+import sys
+sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QInputDialog, QMessageBox, QFormLayout, QApplication
-from logics.logic5 import fgpa
+from logic5 import fgpa
 
 class InputDialog5(QDialog):
 	def __init__(self, parent=None):

@@ -9,7 +9,7 @@ main_grades = {"A": 4.0, "B+": 3.5,
 
 
 def new_gpa_calc(grades, credit):
-		"""Calculate the GPA or CGPA.
+	"""Calculate the GPA or CGPA.
 
 	Args: 
 		grades: Student's grades. Type: List

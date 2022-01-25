@@ -1,5 +1,7 @@
+import sys
+sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QInputDialog, QApplication, QMessageBox, QLineEdit
-from logics.logic4 import new_gpa_calc
+from logic4 import new_gpa_calc
 
 class InputDialog4(QDialog):
 	def __init__(self, parent=None):

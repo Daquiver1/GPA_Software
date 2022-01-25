@@ -1,5 +1,7 @@
+import sys
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QMessageBox, QApplication
-from logics.logic6 import * 
+sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
+from logic6 import * 
 
 class InputDialog6(QWidget):
    def __init__(self, parent = None):

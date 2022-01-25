@@ -1,11 +1,11 @@
 from PyQt5.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout, QInputDialog, QApplication
 from PyQt5.QtCore import Qt
-from grades_needed import InputDialog2
-from max_cgpa import InputDialog3
-from gpa_calc import InputDialog4
-from fgpa_calc import InputDialog5
-from faqs import InputDialog6
-from contact import InputDialog7
+from interfaces.grades_needed import InputDialog2
+from interfaces.max_cgpa import InputDialog3
+from interfaces.gpa_calc import InputDialog4
+from interfaces.fgpa_calc import InputDialog5
+from interfaces.faqs import InputDialog6
+from interfaces.contact import InputDialog7
 import sys
 
 class window(QWidget):
