@@ -2,9 +2,9 @@ import sys
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from logics.logic5 import * 
+from logics.logic6 import * 
 
-class InputDialog5(QWidget):
+class InputDialog6(QWidget):
    def __init__(self, parent = None):
       super().__init__()
       self.resize(200,50)
@@ -73,6 +73,6 @@ class InputDialog5(QWidget):
 
 if __name__ == '__main__':
    app = QApplication(sys.argv)
-   ex = InputDialog5()
+   ex = InputDialog6()
    ex.show()
    sys.exit(app.exec_())
