@@ -1,13 +1,10 @@
-import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QInputDialog, QApplication, QMessageBox, QLineEdit
 from logics.logic4 import new_gpa_calc
 
 class InputDialog4(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
-		self.random()
+		self.main()
 
 
 	def main(self):

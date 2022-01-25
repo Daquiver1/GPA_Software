@@ -1,13 +1,12 @@
-import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout, QInputDialog, QApplication
+from PyQt5.QtCore import Qt
 from grades_needed import InputDialog2
 from max_cgpa import InputDialog3
 from gpa_calc import InputDialog4
 from fgpa_calc import InputDialog5
 from faqs import InputDialog6
 from contact import InputDialog7
+import sys
 
 class window(QWidget):
    def __init__(self, parent = None):

@@ -1,7 +1,4 @@
-import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QMessageBox, QApplication
 from logics.logic6 import * 
 
 class InputDialog6(QWidget):
@@ -72,6 +69,7 @@ class InputDialog6(QWidget):
       QMessageBox.about(self, "Title", good_gpa_info)
 
 if __name__ == '__main__':
+   import sys
    app = QApplication(sys.argv)
    ex = InputDialog6()
    ex.show()

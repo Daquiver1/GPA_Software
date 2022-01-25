@@ -1,13 +1,10 @@
-import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QMessageBox, QApplication, QInputDialog
 from logics.logic2 import *
 
 class InputDialog2(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
-		self.random()
+		self.main()
 
 
 	def main(self):
@@ -46,7 +43,7 @@ class InputDialog2(QDialog):
 		return i
 
 	def showGPA(self):
-		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa}, {self.nii}""")
+		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa}, {self.GRADES}""")
 
 if __name__ == '__main__':
 	import sys

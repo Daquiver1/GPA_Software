@@ -1,7 +1,4 @@
-import sys
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QInputDialog, QMessageBox, QApplication
 from logics.logic3 import *
 
 class InputDialog3(QDialog):
