@@ -10,7 +10,7 @@ class InputDialog4(QDialog):
 		self.random()
 
 
-	def random(self):
+	def main(self):
 		self.course_num = self.getCourses()
 		self.grades = []
 		self.credits = []
@@ -41,8 +41,8 @@ class InputDialog4(QDialog):
 		return i
 
 	def showGPA(self):
-		yaw = new_gpa_calc(self.grades, self.credits)
-		QMessageBox.about(self, "Title", yaw)
+		GPA = new_gpa_calc(self.grades, self.credits)
+		QMessageBox.about(self, "Title", GPA)
 
 if __name__ == '__main__':
 	import sys

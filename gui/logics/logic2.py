@@ -76,21 +76,21 @@ def gpa_to_grades(gpa, course_num):
 
 	i = 0
 	temp = 0.00
-	nii = getList(main_grades)		# Get the grades (A to F)
-	yaw = []
+	grade = getList(main_grades)		# Get the grades (A to F)
+	grades_needed = []
 	while temp != gpa:			
-		temp += main_grades[nii[i]]/course_num		# Add gpt of grade to temp.
+		temp += main_grades[grade[i]]/course_num		# Add gpt of grade to temp.
 
 		if temp > gpa and i > 5: 	# E and F carry zero weight. So break after D.
 			break
 
 		if temp > gpa:				# If Grade[i] can't be added without exceeding gpa, delete added value and rollover to next grade.
-			temp -= main_grades[nii[i]]/course_num		
+			temp -= main_grades[grade[i]]/course_num		
 			i += 1
 		else:
-			yaw.append(nii[i])			# Add grade letter to list.
+			grades_needed.append(grade[i])			# Add grade letter to list.
 
-	return f"you'll need a {gpa} GPA which requires minimum grade(s) of {yaw}"
+	return f"you'll need a {gpa} GPA which requires minimum grade(s) of {grades_needed}"
 
 
 if __name__ == "__main__":

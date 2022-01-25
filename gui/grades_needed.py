@@ -10,7 +10,7 @@ class InputDialog2(QDialog):
 		self.random()
 
 
-	def random(self):
+	def main(self):
 		buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self);
 		layout = QFormLayout(self)
 
@@ -20,8 +20,8 @@ class InputDialog2(QDialog):
 		self.new_cred = self.getNewCredit()
 		self.course_num = self.getNumCourse()
 
-		self.yaw = calc_gpa_needed(self.old_cgpa, self.new_cgpa, self.old_cred, self.new_cred)
-		self.nii = gpa_to_grades(self.yaw, self.course_num)
+		self.GPA = calc_gpa_needed(self.old_cgpa, self.new_cgpa, self.old_cred, self.new_cred)
+		self.GRADES = gpa_to_grades(self.GPA, self.course_num)
 
 		self.showGPA()
 		  
@@ -46,9 +46,6 @@ class InputDialog2(QDialog):
 		return i
 
 	def showGPA(self):
-		if type(self.yaw) == str:
-			return QMessageBox.about(self, "Title", self.yaw)
-
 		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa}, {self.nii}""")
 
 if __name__ == '__main__':

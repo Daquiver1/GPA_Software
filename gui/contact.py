@@ -10,8 +10,8 @@ class InputDialog7(QDialog):
 		self.showMyself()
 
 	def showMyself(self):
-		yaw = Myself()
-		QMessageBox.about(self, "Title", yaw)
+		my_info = Myself()
+		QMessageBox.about(self, "Title", my_info)
 
 if __name__ == '__main__':
 	import sys

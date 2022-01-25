@@ -7,10 +7,10 @@ from logics.logic3 import *
 class InputDialog3(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
-		self.random()
+		self.main()
 
 
-	def random(self):
+	def main(self):
 		buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self);
 		layout = QFormLayout(self)
 
@@ -33,9 +33,9 @@ class InputDialog3(QDialog):
 		return i
 
 	def showGPA(self):
-		yaw = highest_cgpa(self.old_cred, self.new_cred, self.old_cgpa)
-
-		return QMessageBox.about(self, "Title", yaw)
+		max_cgpa = highest_cgpa(self.old_cred, self.new_cred, self.old_cgpa)
+		
+		return QMessageBox.about(self, "Title", max_cgpa)
 
 if __name__ == '__main__':
 	import sys

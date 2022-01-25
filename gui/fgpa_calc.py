@@ -7,10 +7,10 @@ from logics.logic5 import fgpa
 class InputDialog5(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
-		self.random()
+		self.main()
 
 
-	def random(self):
+	def main(self):
 		buttonBox = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel, self);
 		layout = QFormLayout(self)
 		
@@ -38,8 +38,8 @@ class InputDialog5(QDialog):
 		return i
 
 	def showFGPA(self):
-		yaw = fgpa(self.first, self.second, self.third, self.fourth)
-		QMessageBox.about(self, "Title", yaw)
+		FGPA = fgpa(self.first, self.second, self.third, self.fourth)
+		QMessageBox.about(self, "Title", FGPA)
 
 if __name__ == '__main__':
 	import sys

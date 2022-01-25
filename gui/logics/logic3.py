@@ -12,9 +12,9 @@ def highest_cgpa(old_chours, new_chours, old_cgpa):
 
 	max_cgpa = round(max_cgpa, 2)
 
-	yaw = grade_to_classification(max_cgpa)
+	levels = grade_to_classification(max_cgpa)
 
-	return f"With a {old_cgpa} CGPA the highest CGPA you can attain this semester is {max_cgpa} which is {yaw}"
+	return f"With a {old_cgpa} CGPA the highest CGPA you can attain this semester is {max_cgpa} which is {levels}"
 
 def grade_to_classification(grade):
 	if grade >= 3.60:

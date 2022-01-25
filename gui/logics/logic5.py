@@ -19,11 +19,11 @@ def fgpa(cgpa1, cgpa2, cgpa3, cgpa4):
 
 	final_gpa = round(final_gpa, 2)
 
-	yaw = grade_to_classification(final_gpa)
+	levels = grade_to_classification(final_gpa)
 
 	return f"""
 Level 100: {cgpa1}, Level 200: {cgpa2}, Level 300: {cgpa3}, Level 400: {cgpa4} 
-For these CGPA, your FGPA is {final_gpa} which is {yaw}"""
+For these CGPA, your FGPA is {final_gpa} which is {levels}"""
 
 def grade_to_classification(grade):
 	if grade >= 3.60:
