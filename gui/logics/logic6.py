@@ -1,6 +1,7 @@
 def gpa():
 	temp = f"""
 GPA also known as grade point average is a metric used to measure academic perfomances.
+GPA is for a single semester and CGPA is for cumulative semesters.
 It ranges from 0.0 to 4.0.
 GPA is calculated by adding total credit hours, and total grade point. Then it divides total grade point by total credit hours
 Total grade point = (grade point * credit hours) 
