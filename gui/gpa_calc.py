@@ -42,7 +42,7 @@ class InputDialog4(QDialog):
 
 	def showGPA(self):
 		yaw = new_gpa_calc(self.grades, self.credits)
-		QMessageBox.about(self, "Title", f"Your gpa is {yaw}")
+		QMessageBox.about(self, "Title", yaw)
 
 if __name__ == '__main__':
 	import sys

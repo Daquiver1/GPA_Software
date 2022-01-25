@@ -44,6 +44,23 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 
 	return min_gpa
 
+def grade_to_classification(grade):
+	if grade >= 3.60:
+	 return "First Class"
+	elif grade >= 3.00: 
+		return "Second Class Upper"
+	elif grade >= 2.00:
+		return "Second class Lower"
+	elif grade >= 1.50:
+		return "Third Class"
+	elif grade >= 1.00:
+		return "Pass"
+	elif grade < 1.00:
+		return "Fail"
+	else:
+		return "Invalid Input"
+
+
 def getList(dict):
 	"""Returns dict keys as list.
 
@@ -90,7 +107,7 @@ def gpa_to_grades(gpa, course_num):
 		else:
 			yaw.append(nii[i])			# Add grade letter to list.
 
-	return yaw
+	return f"you'll need a {gpa} GPA which requires minimum grade(s) of {yaw}"
 
 
 if __name__ == "__main__":

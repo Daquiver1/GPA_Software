@@ -8,42 +8,6 @@ main_grades = {"A": 4.0, "B+": 3.5,
 		 "F": 0}
 
 
-def gpa_calc():
-	"""Calculate the GPA of a student
-
-	Args: 
-		None
-
-	Returns:
-		The resulting gpa
-
-	Raises:
-		ValueError: If the user enters invalid value types.
-	"""
-	count = 0
-	hours = 0
-
-	try:
-		course_num = int(input("Please enter the num of courses you are offering: "))
-	except ValueError:
-		return "value must be an integer"
-
-	for i in range(course_num):
-		grades = input(f"Enter grade{i+1}: ").upper()
-
-		if grades not in main_grades:
-			return "Enter a valid grade"
-
-		try:
-			c_hours = int(input(f"Enter the credit hour of grade {grades}: "))
-		except ValueError:
-			return "Value must be an integer."
-			
-		count += main_grades[grades] * c_hours	# Total grade point.
-		hours += c_hours	# Total credit hours
-
-	return count/hours		# Gpa value
-
 def new_gpa_calc(grades, credit):
 	total_gpt = 0
 	for i in range(len(grades)):
@@ -54,13 +18,31 @@ def new_gpa_calc(grades, credit):
 		total_gpt += grades[i] * credit[i]
 
 	gpa = total_gpt / sum(credit)
+	gpa = round(gpa, 2)
 
-	return gpa
-	
+	yaw = grade_to_classification(gpa)
+
+	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your gpa is {gpa} which is {yaw}"
+
+
+def grade_to_classification(grade):
+	if grade >= 3.60:
+	 return "First Class"
+	elif grade >= 3.00: 
+		return "Second Class Upper"
+	elif grade >= 2.00:
+		return "Second class Lower"
+	elif grade >= 1.50:
+		return "Third Class"
+	elif grade >= 1.00:
+		return "Pass"
+	elif grade < 1.00:
+		return "Fail"
+	else:
+		return "Invalid Input"
 
 
 if __name__ == "__main__":
 	grades = ["A", "B", "C"]
 	credit = [3,2,3]
 	print(new_gpa_calc(grades, credit))
-	print(gpa_calc())

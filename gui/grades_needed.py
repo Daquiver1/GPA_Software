@@ -49,7 +49,7 @@ class InputDialog2(QDialog):
 		if type(self.yaw) == str:
 			return QMessageBox.about(self, "Title", self.yaw)
 
-		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa} you need to get a gpa of {self.yaw} this semester and a GPA of {self.yaw} requries minimum grade(s) of {self.nii}""")
+		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa}, {self.nii}""")
 
 if __name__ == '__main__':
 	import sys

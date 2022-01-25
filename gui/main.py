@@ -30,9 +30,9 @@ class window(QWidget):
       self.l1.setText("Hey, Welcome To Daquiver's GPA Self Care")
       self.l2.setText("Below are the features we support")
       self.l3.setText("If this is your first time, go through the FAQS before you begin")
-      self.btn1.setText("LEVEL PREDICTOR")
+      self.btn1.setText("LEVEL PREDICTOR(NOT IMPLEMENTED")   
       # Add connect
-      self.btn2.setText("GRADES YOU NEED IN ORDER TO ATTAIN A LEVEL")
+      self.btn2.setText("GRADES YOU NEED IN ORDER TO REACH A SPECIFIC CGPA")
       self.btn2.clicked.connect(self.button2)
       self.btn3.setText("HIGHEST CGPA YOU CAN ATTAIN IN A SEM")
       self.btn3.clicked.connect(self.button3)
