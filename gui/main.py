@@ -3,6 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from grades_needed import InputDialog2
+from max_cgpa import InputDialog3
 from gpa_calc import InputDialog4
 from fgpa_calc import InputDialog5
 from faqs import InputDialog6
@@ -34,7 +35,7 @@ class window(QWidget):
       self.btn2.setText("GRADES YOU NEED IN ORDER TO ATTAIN A LEVEL")
       self.btn2.clicked.connect(self.button2)
       self.btn3.setText("HIGHEST CGPA YOU CAN ATTAIN IN A SEM")
-      # Add connect
+      self.btn3.clicked.connect(self.button3)
       self.btn4.setText("GPA CALCULATOR")
       self.btn4.clicked.connect(self.button4)
       self.btn5.setText("FGPA CALCULATOR")
@@ -65,6 +66,9 @@ class window(QWidget):
 
    def button2(self, s):
       dlg = InputDialog2()
+
+   def button3(self, s):
+      dlg = InputDialog3()
 
    def button4(self,s):
       dlg = InputDialog4()
