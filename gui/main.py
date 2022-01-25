@@ -4,8 +4,9 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from grades_needed import InputDialog2
 from gpa_calc import InputDialog4
-from contact import InputDialog7
+from fgpa_calc import InputDialog5
 from faqs import InputDialog6
+from contact import InputDialog7
 
 class window(QWidget):
    def __init__(self, parent = None):
@@ -37,7 +38,7 @@ class window(QWidget):
       self.btn4.setText("GPA CALCULATOR")
       self.btn4.clicked.connect(self.button4)
       self.btn5.setText("FGPA CALCULATOR")
-      # Add connect
+      self.btn5.clicked.connect(self.button5)
       self.btn6.setText("FAQS")
       self.btn6.clicked.connect(self.button6)
       self.btn7.setText("CONTACT")
@@ -45,6 +46,7 @@ class window(QWidget):
 
       self.l1.setAlignment(Qt.AlignCenter)
       self.l2.setAlignment(Qt.AlignCenter)
+      self.l3.setAlignment(Qt.AlignCenter)
 
       self.vbox = QVBoxLayout()
       self.vbox.addWidget(self.l1)
@@ -66,6 +68,9 @@ class window(QWidget):
 
    def button4(self,s):
       dlg = InputDialog4()
+
+   def button5(self, s):
+      dlg = InputDialog5()
 
    def button6(self, s):
       self.dlg = InputDialog6()           # When the method is left, the window will be destroyed. So I stored it by adding self.
