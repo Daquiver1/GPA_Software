@@ -1,12 +1,4 @@
-# TODO: Add the weighting system
-# TODO: Document program
-
-main_grades = {"A": 4.0, "B+": 3.5,
-		 "B": 3.0, "C+": 2.5, 
-		 "C": 2.0, "D+": 1.5,
-		 "D": 1.0, "E": 0,
-		 "F": 0}
-
+from base import main_grades, grade_to_classification
 
 def new_gpa_calc(grades, credit):
 	"""Calculate the GPA or CGPA.
@@ -34,36 +26,7 @@ def new_gpa_calc(grades, credit):
 
 	levels = grade_to_classification(gpa)		# Retrieve level of maximum CGPA
 
-	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your GPA is {gpa} which is {levels}"
-
-
-def grade_to_classification(grade):
-	"""Transorm a GPA to it's corresponding level.
-
-	Args: 
-		GPA: Users gpa. Type: float
-
-	Returns:
-		The corresponding level of inputted GPA. Type: String	
-
-	Raises:
-		None
-	"""
-	if grade >= 3.60:
-	 return "First Class"
-	elif grade >= 3.00: 
-		return "Second Class Upper"
-	elif grade >= 2.00:
-		return "Second class Lower"
-	elif grade >= 1.50:
-		return "Third Class"
-	elif grade >= 1.00:
-		return "Pass"
-	elif grade < 1.00:
-		return "Fail"
-	else:
-		return "Invalid Input"
-
+	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your GPA is {gpa} which is a {levels}"
 
 if __name__ == "__main__":
 	grades = ["A", "B", "C"]

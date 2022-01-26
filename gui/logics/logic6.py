@@ -1,3 +1,5 @@
+from base import grade_to_classification
+
 def fgpa(cgpa1, cgpa2, cgpa3, cgpa4):
 	"""Calculates the FGPA of a student. Multiplies each level's cgpa by it's corresponding weight.
 		Then sums it up.
@@ -37,34 +39,6 @@ def fgpa(cgpa1, cgpa2, cgpa3, cgpa4):
 	return f"""
 Level 100: {cgpa1}, Level 200: {cgpa2}, Level 300: {cgpa3}, Level 400: {cgpa4} 
 For these CGPA, your FGPA is {final_gpa} which is a {levels}"""
-
-def grade_to_classification(grade):
-	"""Transorm a GPA to it's corresponding level.
-
-	Args: 
-		GPA: Users gpa. Type: float
-
-	Returns:
-		The corresponding level of inputted GPA. Type: String	
-
-	Raises:
-		None
-	"""
-	if grade >= 3.60:
-	 return "First Class"
-	elif grade >= 3.00: 
-		return "Second Class Upper"
-	elif grade >= 2.00:
-		return "Second class Lower"
-	elif grade >= 1.50:
-		return "Third Class"
-	elif grade >= 1.00:
-		return "Pass"
-	elif grade < 1.00:
-		return "Fail"
-	else:
-		return "Invalid Input"
-
 
 if __name__ == "__main__":
 	try:

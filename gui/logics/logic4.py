@@ -1,3 +1,5 @@
+from base import grade_to_classification
+
 def lowest_cgpa(old_chours, new_chours, old_cgpa):
 	"""Calculate the lowest CGPA one can attain.
 
@@ -28,34 +30,7 @@ def lowest_cgpa(old_chours, new_chours, old_cgpa):
 
 	levels = grade_to_classification(min_cgpa)					# Retrieve level of maximum CGPA
 
-	return f"With a {old_cgpa} CGPA the lowest CGPA you can attain this semester is {min_cgpa} which is {levels}"
-
-def grade_to_classification(gpa):
-	"""Transorm a GPA to it's corresponding level.
-
-	Args: 
-		GPA: Users gpa. Type: float
-
-	Returns:
-		The corresponding level of inputted GPA. Type: String	
-
-	Raises:
-		None
-	"""
-	if gpa >= 3.60:
-		return "First Class"
-	elif gpa >= 3.00: 
-		return "Second Class Upper"
-	elif gpa >= 2.00:
-		return "Second class Lower"
-	elif gpa >= 1.50:
-		return "Third Class"
-	elif gpa >= 1.00:
-		return "Pass"
-	elif gpa < 1.00:
-		return "Fail"
-	else:
-		return "Invalid Input"
+	return f"With a {old_cgpa} CGPA the lowest CGPA you can attain this semester is {min_cgpa} which is a {levels}"
 
 if __name__ == "__main__":
 	try:

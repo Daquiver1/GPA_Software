@@ -1,8 +1,5 @@
-main_grades = {"A": 4.0, "B+": 3.5,
-		 "B": 3.0, "C+": 2.5, 
-		 "C": 2.0, "D+": 1.5,
-		 "D": 1.0, "E": 0,
-		 "F": 0}
+from logic4 import lowest_cgpa
+from base import grade_to_classification, main_grades, getList
 
 def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	"""Calculate the GPA needed in order to hit a specified CGPA.
@@ -34,13 +31,18 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	except ZeroDivisionError:
 		return "Invalid values"
 
+	lowest = lowest_cgpa(old_chours, new_chours,old_cgpa)
+	low_level = grade_to_classification(lowest)
+	highest = highest_cgpa(old_chours, new_chours, old_cgpa)
+	high_level = grade_to_classification(highest)
+	min_gpa = round(min_gpa, 2)
+
 	if min_gpa > 4.00:
-		return f"You can't achieve a {new_cgpa} CGPA this semester, try again next semester"
+		return f"You can't achieve a {new_cgpa} CGPA this semester. The highest you can attain is {highest} which is a {high_level}"
 
 	if min_gpa <0.00:
-		return f"You can't achieve a {new_cgpa} CGPA this semester, it's impossible. The lowest you can achieve is"
+		return f"You can't achieve a {new_cgpa} CGPA this semester. The lowest you can achieve is {lowest} which is a {low_level}"
 
-	min_gpa = round(min_gpa, 2)
 
 	return min_gpa
 
@@ -89,6 +91,9 @@ def gpa_to_grades(gpa, course_num):
 			i += 1
 		else:
 			grades_needed.append(grade[i])			#If it can, add grade letter to list and continue.
+
+		if len(grades_needed) == 0:
+			return f"For the specifics above, you'll need a {gpa} GPA which requries you to fail all courses."
 
 	return f"For this info, you'll need a {gpa} GPA which requires minimum grade(s) of {grades_needed}"
 
