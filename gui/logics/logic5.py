@@ -1,42 +1,41 @@
-def fgpa(cgpa1, cgpa2, cgpa3, cgpa4):
-	"""Calculates the FGPA of a student. Multiplies each level's cgpa by it's corresponding weight.
-		Then sums it up.
+# TODO: Add the weighting system
+# TODO: Document program
+
+main_grades = {"A": 4.0, "B+": 3.5,
+		 "B": 3.0, "C+": 2.5, 
+		 "C": 2.0, "D+": 1.5,
+		 "D": 1.0, "E": 0,
+		 "F": 0}
+
+
+def new_gpa_calc(grades, credit):
+	"""Calculate the GPA or CGPA.
 
 	Args: 
-		CGPA1: Level 100's cgpa. Type: float
-		CGPA2: Level 200's cgpa. Type: float
-		CGPA3: Level 300's cgpa. Type: float
-		CGPA4: Level 400's cgpa. Type: float
+		grades: Student's grades. Type: List
+		credit: Student's credit corresponding to grade. Type: List
 
 	Returns:
-		The FGPA of student. Type: String?
+		The GPA of the student. Type: String?
 
 	Raises:
 		None
 	"""
+	total_gpt = 0
+	for i in range(len(grades)):
+		if grades[i] not in main_grades.keys():
+			return "Invalid grades"
 
-	if type(cgpa1) and type(cgpa2) and type(cgpa3) and type(cgpa4) not in [float,int]:	# Error handling for when the function is imported from another file.
-		return "Please enter a decimal or integer for your CGPA"
+		grades[i] = main_grades[grades[i]] 
+		total_gpt += grades[i] * credit[i]		# Total gradepoint
 
-	if cgpa1 >4 and cgpa2 > 4 and cgpa3 > 4 and cgpa4 > 4:
-		return "Your CGPA should be between 0 and 4"
+	gpa = total_gpt / sum(credit)
+	gpa = round(gpa, 2)
 
-	if cgpa1 < 0 and cgpa1 < 0 and cgpa3 < 0 and cgpa4 <0:
-		return "Your CGPA should be between 0 and 4"
+	levels = grade_to_classification(gpa)		# Retrieve level of maximum CGPA
 
-	temp1 = cgpa1 *1/6 				# Weight 1
-	temp2 = cgpa2 * 1/6 			# Weight 2
-	temp3 = cgpa3 * 2/6 			# Weight 3
-	temp4 = cgpa4 * 2/6 			# Weight 4
+	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your GPA is {gpa} which is {levels}"
 
-	final_gpa = temp1 + temp2 + temp3 + temp4
-	final_gpa = round(final_gpa, 2)
-
-	levels = grade_to_classification(final_gpa)
-
-	return f"""
-Level 100: {cgpa1}, Level 200: {cgpa2}, Level 300: {cgpa3}, Level 400: {cgpa4} 
-For these CGPA, your FGPA is {final_gpa} which is {levels}"""
 
 def grade_to_classification(grade):
 	"""Transorm a GPA to it's corresponding level.
@@ -67,11 +66,6 @@ def grade_to_classification(grade):
 
 
 if __name__ == "__main__":
-	try:
-		cgpa1 = float(input("Please enter level 100's cgpa: "))
-		cgpa2 = float(input("Please enter level 200's cgpa: "))
-		cgpa3 = float(input("Please enter level 300's cgpa: "))
-		cgpa4 = float(input("Please enter level 400's cgpa: "))
-		print(fgpa(cgpa1, cgpa2, cgpa3, cgpa4))
-	except ValueError:
-		print("Please enter a decimal for your gpas")
+	grades = ["A", "B", "C"]
+	credit = [3,2,3]
+	print(new_gpa_calc(grades, credit))

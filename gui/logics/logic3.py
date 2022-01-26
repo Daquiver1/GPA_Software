@@ -20,7 +20,10 @@ def highest_cgpa(old_chours, new_chours, old_cgpa):
 
 	total_chours = old_chours + new_chours						# Total credit hours.
 	old_points = old_chours * old_cgpa							# Weight of current gpa over current credit hours.
-	max_cgpa = ((new_chours * 4) + old_points) / total_chours	# Weight of new gpa over sem's credit hours/ divided by total credit hours.
+	try:
+		max_cgpa = ((new_chours * 4) + old_points) / total_chours	# Weight of new gpa over sem's credit hours/ divided by total credit hours.
+	except ZeroDivisionError:
+		return "Invalid Inputs"
 	max_cgpa = round(max_cgpa, 2)
 
 	levels = grade_to_classification(max_cgpa)					# Retrieve level of maximum CGPA

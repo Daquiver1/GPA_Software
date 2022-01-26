@@ -1,9 +1,9 @@
 import sys
 sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QInputDialog, QMessageBox, QFormLayout, QApplication
-from logic5 import fgpa
+from logic6 import fgpa
 
-class InputDialog5(QDialog):
+class InputDialog6(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.main()
@@ -48,6 +48,6 @@ class InputDialog5(QDialog):
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
-	dialog = InputDialog5()
+	dialog = InputDialog6()
 	exit(0)
 

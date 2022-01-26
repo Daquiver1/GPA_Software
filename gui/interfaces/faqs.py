@@ -1,9 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QPushButton, QVBoxLayout, QMessageBox, QApplication
 sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
-from logic6 import * 
+from logic7 import * 
 
-class InputDialog6(QWidget):
+class InputDialog7(QWidget):
    def __init__(self, parent = None):
       super().__init__()
       self.resize(200,50)
@@ -80,6 +80,6 @@ class InputDialog6(QWidget):
 if __name__ == '__main__':
    import sys
    app = QApplication(sys.argv)
-   ex = InputDialog6()
+   ex = InputDialog7()
    ex.show()
    sys.exit(app.exec_())

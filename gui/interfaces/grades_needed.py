@@ -26,32 +26,33 @@ class InputDialog2(QDialog):
 		  
 	def getOldGpa(self):
 		""" A function to retrieve the current CGPA of student. """
-		i, okPressed = QInputDialog.getDouble(self, "Current","Your Current GPA: ", 0.00, 0, 100000, 2)
+		i, okPressed = QInputDialog.getDouble(self, "Current","Your Current GPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getNewGpa(self):
 		""" A function to retrieve the desired CGPA of student. """
-		i, okPressed = QInputDialog.getDouble(self, "Desired","Your Desired GPA: ", 0.00, 0, 100000, 2)
+		i, okPressed = QInputDialog.getDouble(self, "Desired","Your Desired GPA: ", 0.00, 0, 4.0, 2)
 		return i
 
 	def getNumCourse(self):
 		""" A function to retrieve the number of courses of a student. """
-		i, okpressed = QInputDialog.getInt(self, "Number of Courses", "How many courses: ", 0, 0, 100000, 1)
+		i, okpressed = QInputDialog.getInt(self, "Number of Courses", "How many courses: ", 0, 0, 20, 1)
 		return i
 
 	def getOldCredit(self):
 		""" A function to retrieve the current credit hours of a student. """
-		i, okpressed = QInputDialog.getInt(self, "Old Credit Hours", "Your current credit hours: ", 0, 0, 100000, 1)
+		i, okpressed = QInputDialog.getInt(self, "Old Credit Hours", "Your current credit hours: ", 0, 0, 1000, 1)
 		return i
 
 	def getNewCredit(self):
 		""" A function to retrieve a student's credit hours. Only for a particular sem. Not cumulative. """
-		i, okpressed = QInputDialog.getInt(self, "New Credit Hours", "Your new credit hours: ", 0, 0, 100000, 1)
+		i, okpressed = QInputDialog.getInt(self, "New Credit Hours", "Your new credit hours: ", 0, 0, 30, 1)
 		return i
 
 	def showGPA(self):
 		""" A function to display the grades a student needs to attain a particular cgpa. """
-		return QMessageBox.about(self, "Title", f"""For {self.course_num} courses in order to move from a CGPA of {self.old_cgpa} to a CGPA of {self.new_cgpa}, {self.GRADES}""")
+
+		return QMessageBox.about(self, "Title", f"""Courses: {self.course_num}\n Current CGPA: {self.old_cgpa}\n Desired CGPA: {self.new_cgpa}\n Current Credit Hours: {self.old_cred}\n Semesters Credit Hours: {self.new_cred}\n {self.GRADES}""")
 
 if __name__ == '__main__':
 	import sys

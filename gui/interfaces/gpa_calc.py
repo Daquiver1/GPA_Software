@@ -1,9 +1,9 @@
 import sys
 sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QInputDialog, QApplication, QMessageBox, QLineEdit
-from logic4 import new_gpa_calc
+from logic5 import *
 
-class InputDialog4(QDialog):
+class InputDialog5(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.main()
@@ -27,7 +27,7 @@ class InputDialog4(QDialog):
 		  
 	def getCourses(self):
 		""" A function to retrieve the number of courses of a student. """
-		i, okPressed = QInputDialog.getInt(self, "Courses","Number of Courses:", 4, 0, 10, 1)
+		i, okPressed = QInputDialog.getInt(self, "Courses","Number of Courses:", 4, 0, 100, 1)
 		return i
 
 	def getText(self):
@@ -50,6 +50,6 @@ class InputDialog4(QDialog):
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
-	dialog = InputDialog4()
+	dialog = InputDialog5()
 	exit(0)
 

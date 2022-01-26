@@ -32,10 +32,13 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	try: 
 		min_gpa = diff_points / new_chours			# Your diff weight scaled to your new hours, to reflect the GPA you need. 
 	except ZeroDivisionError:
-		return "Yikes, we encountered an error."
+		return "Invalid values"
 
 	if min_gpa > 4.00:
 		return f"You can't achieve a {new_cgpa} CGPA this semester, try again next semester"
+
+	if min_gpa <0.00:
+		return f"You can't achieve a {new_cgpa} CGPA this semester, it's impossible. The lowest you can achieve is"
 
 	min_gpa = round(min_gpa, 2)
 
@@ -87,7 +90,7 @@ def gpa_to_grades(gpa, course_num):
 		else:
 			grades_needed.append(grade[i])			#If it can, add grade letter to list and continue.
 
-	return f"you'll need a {gpa} GPA which requires minimum grade(s) of {grades_needed}"
+	return f"For this info, you'll need a {gpa} GPA which requires minimum grade(s) of {grades_needed}"
 
 
 if __name__ == "__main__":

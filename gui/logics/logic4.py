@@ -1,43 +1,36 @@
-# TODO: Add the weighting system
-# TODO: Document program
-
-main_grades = {"A": 4.0, "B+": 3.5,
-		 "B": 3.0, "C+": 2.5, 
-		 "C": 2.0, "D+": 1.5,
-		 "D": 1.0, "E": 0,
-		 "F": 0}
-
-
-def new_gpa_calc(grades, credit):
-	"""Calculate the GPA or CGPA.
+def lowest_cgpa(old_chours, new_chours, old_cgpa):
+	"""Calculate the lowest CGPA one can attain.
 
 	Args: 
-		grades: Student's grades. Type: List
-		credit: Student's credit corresponding to grade. Type: List
+		old_chours: Your credit hours for your previous semesters. Type: int
+		new_chours: Your credit hours for your current or next semester. Type: int
+		old_cgpa: Your current cgpa. Type: float or int.
 
 	Returns:
-		The GPA of the student. Type: String?
+		Minimum CGPA a user can attain. Type: float 
 
 	Raises:
 		None
 	"""
-	total_gpt = 0
-	for i in range(len(grades)):
-		if grades[i] not in main_grades.keys():
-			return "Invalid grades"
+	if type(old_cgpa) not in [float, int] and type(old_chours) and type(new_chours) not in [int]:	# Error handling for when the function is imported from another file.
+		return "Please enter a decimal or integer for your cgpas"
 
-		grades[i] = main_grades[grades[i]] 
-		total_gpt += grades[i] * credit[i]		# Total gradepoint
+	if old_cgpa <0 and old_cgpa >4:
+		return "Your cgpas should be between 0 and 4"
 
-	gpa = total_gpt / sum(credit)
-	gpa = round(gpa, 2)
+	total_chours = old_chours + new_chours						# Total credit hours.
+	old_points = old_chours * old_cgpa							# Weight of current gpa over current credit hours.
+	try:
+		min_cgpa = (old_points) / total_chours	# Weight of new gpa over sem's credit hours/ divided by total credit hours.
+	except ZeroDivisionError:
+		return "Invalid inputs"
+	min_cgpa = round(min_cgpa, 2)
 
-	levels = grade_to_classification(gpa)		# Retrieve level of maximum CGPA
+	levels = grade_to_classification(min_cgpa)					# Retrieve level of maximum CGPA
 
-	return f"For {total_gpt} total grade point and {sum(credit)} credit hours, your GPA is {gpa} which is {levels}"
+	return f"With a {old_cgpa} CGPA the lowest CGPA you can attain this semester is {min_cgpa} which is {levels}"
 
-
-def grade_to_classification(grade):
+def grade_to_classification(gpa):
 	"""Transorm a GPA to it's corresponding level.
 
 	Args: 
@@ -49,23 +42,27 @@ def grade_to_classification(grade):
 	Raises:
 		None
 	"""
-	if grade >= 3.60:
-	 return "First Class"
-	elif grade >= 3.00: 
+	if gpa >= 3.60:
+		return "First Class"
+	elif gpa >= 3.00: 
 		return "Second Class Upper"
-	elif grade >= 2.00:
+	elif gpa >= 2.00:
 		return "Second class Lower"
-	elif grade >= 1.50:
+	elif gpa >= 1.50:
 		return "Third Class"
-	elif grade >= 1.00:
+	elif gpa >= 1.00:
 		return "Pass"
-	elif grade < 1.00:
+	elif gpa < 1.00:
 		return "Fail"
 	else:
 		return "Invalid Input"
 
-
 if __name__ == "__main__":
-	grades = ["A", "B", "C"]
-	credit = [3,2,3]
-	print(new_gpa_calc(grades, credit))
+	try:
+		old_cred = int(input("Please enter your current credit hours: "))
+		new_cred = int(input("Please enter this semester's credit hours: "))
+		old_cgpa = float(input("Please enter your current CGPA: "))
+		print(lowest_cgpa(old_cred, new_cred, old_cgpa))
+	except ValueError:
+		print("Please enter a decimal for your CGPAS")
+

@@ -26,12 +26,12 @@ class InputDialog3(QDialog):
 
 	def getOldCredit(self):
 		""" A function to retrieve the current credit hours of student. """
-		i, okpressed = QInputDialog.getInt(self, "Old Credit Hours", "Your current credit hours: ", 0, 0, 100000, 1)
+		i, okpressed = QInputDialog.getInt(self, "Old Credit Hours", "Your current credit hours: ", 0, 0, 100, 1)
 		return i
 
 	def getNewCredit(self):
 		""" A function to retrieve the credit hours of a semester. """
-		i, okpressed = QInputDialog.getInt(self, "New Credit Hours", "Credit hours for this semester ", 0, 0, 100000, 1)
+		i, okpressed = QInputDialog.getInt(self, "New Credit Hours", "Credit hours for this semester ", 0, 0, 30, 1)
 		return i
 
 	def showGPA(self):

@@ -1,9 +1,9 @@
 import sys
 sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
 from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
-from logic7 import Myself
+from logic8 import Myself
 
-class InputDialog7(QDialog):
+class InputDialog8(QDialog):
 	def __init__(self, parent=None):
 		super().__init__(parent)
 		self.showMyself()
@@ -16,6 +16,6 @@ class InputDialog7(QDialog):
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)
-	dialog = InputDialog7()
+	dialog = InputDialog8()
 	exit(0)
 
