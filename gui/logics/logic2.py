@@ -45,20 +45,6 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 
 
 	return min_gpa
-
-def getList(dict):
-	"""Returns dict keys as list.
-
-	Args: 
-		dict: Dictionary. Type: dict
-
-	Returns:
-		Dictionary keys of type list
-
-	Raises:
-		None
-	""" 
-	return list(dict.keys())
 	  
 def gpa_to_grades(gpa, course_num):
 	"""Converts GPA to grades
