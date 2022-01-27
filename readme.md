@@ -15,10 +15,10 @@ It supports the following features.
 * FAQS.
 * CONTACT.
 
-## Bot Preview
-![image1](images/1.jpg)
-![image2](images/2.jpg)
-![image3](images/3.jpg)
+## GUI Preview
+![image1](gui/images/1.jpg)
+![image2](gui/images/2.jpg)
+![image3](gui/images/3.jpg)
 
 ## TODOS
 
