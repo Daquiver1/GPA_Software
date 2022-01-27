@@ -31,17 +31,13 @@ def calc_gpa_needed(old_cgpa, new_cgpa, old_chours, new_chours):
 	except ZeroDivisionError:
 		return "Invalid values"
 
-	lowest = lowest_cgpa(old_chours, new_chours,old_cgpa)
-	low_level = grade_to_classification(lowest)
-	highest = highest_cgpa(old_chours, new_chours, old_cgpa)
-	high_level = grade_to_classification(highest)
 	min_gpa = round(min_gpa, 2)
 
 	if min_gpa > 4.00:
-		return f"You can't achieve a {new_cgpa} CGPA this semester. The highest you can attain is {highest} which is a {high_level}"
+		return f"You can't achieve a {new_cgpa} CGPA this semester. Too high"
 
 	if min_gpa <0.00:
-		return f"You can't achieve a {new_cgpa} CGPA this semester. The lowest you can achieve is {lowest} which is a {low_level}"
+		return f"You can't achieve a {new_cgpa} CGPA this semester. Too low"
 
 
 	return min_gpa
