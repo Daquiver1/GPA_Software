@@ -1,5 +1,6 @@
 import sys
-sys.path.insert(0, "C:\\Users\\Anita Agyepong\\Documents\\Daquiver's Quivers\\Python\\GPA_Software\\gui\\logics")
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logics'))
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QFormLayout, QMessageBox, QApplication, QInputDialog
 from logic2 import *
 
